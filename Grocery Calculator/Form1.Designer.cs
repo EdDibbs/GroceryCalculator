@@ -46,7 +46,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listItems.Location = new System.Drawing.Point(13, 13);
             this.listItems.Name = "listItems";
-            this.listItems.Size = new System.Drawing.Size(444, 172);
+            this.listItems.Size = new System.Drawing.Size(446, 237);
             this.listItems.TabIndex = 0;
             this.listItems.UseCompatibleStateImageBehavior = false;
             this.listItems.View = System.Windows.Forms.View.List;
@@ -54,9 +54,9 @@
             // 
             // labelCost1
             // 
-            this.labelCost1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCost1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCost1.AutoSize = true;
-            this.labelCost1.Location = new System.Drawing.Point(9, 214);
+            this.labelCost1.Location = new System.Drawing.Point(343, 362);
             this.labelCost1.Name = "labelCost1";
             this.labelCost1.Size = new System.Drawing.Size(58, 13);
             this.labelCost1.TabIndex = 1;
@@ -64,9 +64,9 @@
             // 
             // labelCost2
             // 
-            this.labelCost2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCost2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCost2.AutoSize = true;
-            this.labelCost2.Location = new System.Drawing.Point(73, 214);
+            this.labelCost2.Location = new System.Drawing.Point(434, 362);
             this.labelCost2.Name = "labelCost2";
             this.labelCost2.Size = new System.Drawing.Size(25, 13);
             this.labelCost2.TabIndex = 2;
@@ -74,8 +74,8 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(12, 232);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(346, 256);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             this.lblEd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEd.AutoSize = true;
-            this.lblEd.Location = new System.Drawing.Point(304, 188);
+            this.lblEd.Location = new System.Drawing.Point(343, 282);
             this.lblEd.Name = "lblEd";
             this.lblEd.Size = new System.Drawing.Size(23, 13);
             this.lblEd.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(304, 206);
+            this.label1.Location = new System.Drawing.Point(343, 300);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 5;
@@ -107,7 +107,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(304, 224);
+            this.label2.Location = new System.Drawing.Point(343, 318);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 6;
@@ -117,7 +117,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(304, 242);
+            this.label3.Location = new System.Drawing.Point(343, 336);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 7;
@@ -126,7 +126,7 @@
             // btnAddItem
             // 
             this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddItem.Location = new System.Drawing.Point(13, 188);
+            this.btnAddItem.Location = new System.Drawing.Point(12, 256);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 8;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 262);
+            this.ClientSize = new System.Drawing.Size(471, 384);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
