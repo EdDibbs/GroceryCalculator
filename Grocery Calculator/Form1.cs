@@ -105,7 +105,11 @@ namespace Grocery_Calculator
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-
+            if (listItems.SelectedItems.Count == 0)
+            {
+                statusLabel.Text = "Must select an item to edit.";
+                return;
+            }
             ListViewItem selectedItem = listItems.SelectedItems[0];
             GroceryItem selectedGroceryItem = new GroceryItem (selectedItem);
             FormAddItem addItemForm = new FormAddItem(this, selectedGroceryItem);

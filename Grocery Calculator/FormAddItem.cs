@@ -27,7 +27,9 @@ namespace Grocery_Calculator
             myParent = parent;
 
             txtName.Text = item.Name;
-            txtCost.Text = item.Cost.ToString() ;
+            txtCost.Text = item.Cost.ToString();
+            txtCost.Select();
+            txtName.Select();
             boxTax.Checked = item.Taxed;
 
             int payers = item.Payers;
@@ -37,7 +39,7 @@ namespace Grocery_Calculator
             if (payersString.Contains("Matt"))
                 boxMatt.Checked = true;
             if (payersString.Contains("Mel"))
-                boxMatt.Checked = true;
+                boxMel.Checked = true;
             if (payersString.Contains("Mike"))
                 boxMike.Checked = true;
 
