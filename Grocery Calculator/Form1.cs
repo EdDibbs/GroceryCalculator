@@ -25,6 +25,10 @@ namespace Grocery_Calculator
             InitializeComponent();
 
         }
+        public void AddItem(ListViewItem item)
+        {
+            listItems.Items.Add(item);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,7 +47,7 @@ namespace Grocery_Calculator
 
             string[] item1 = new string[4];
             item1[0] = "Really long item name, like seriously what is this long?";
-            item1[1] = "$5.83";
+            item1[1] = "$15.83";
             item1[2] = "Y";
             item1[3] = "Ed, Matt, Mel, Mike";
 
@@ -79,11 +83,31 @@ namespace Grocery_Calculator
             }
             
             labelCost2.Text = "$" + totalCost.ToString("F");
+
+
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
+            FormAddItem addItemForm = new FormAddItem(this);
+            addItemForm.ShowDialog();
+            button1_Click(null, null);
+        }
 
+        private void labelCost2_TextChanged(object sender, EventArgs e)
+        {
+            //if we're out of the window's view we should nudge over
+            if (labelCost2.Right > this.Width)
+            {
+                labelCost2.Left = this.Width - labelCost2.Width;
+            }
+        }
+
+        private void btnEditItem_Click(object sender, EventArgs e)
+        {
+            //listItems.SelectedItems
+            //FormAddItem addItemForm = new FormAddItem(this);
+            
         }
 
 
