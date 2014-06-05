@@ -28,6 +28,8 @@ namespace Grocery_Calculator
 
             txtName.Text = item.Name;
             txtCost.Text = item.Cost.ToString();
+
+            //select and deselect the txtCost to cause validation to occur
             txtCost.Select();
             txtName.Select();
             boxTax.Checked = item.Taxed;

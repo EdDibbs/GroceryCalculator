@@ -76,7 +76,7 @@
             this.txtName.Location = new System.Drawing.Point(82, 12);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(122, 20);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 0;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtCost
@@ -95,7 +95,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 235);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(236, 22);
-            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
@@ -110,7 +110,7 @@
             this.boxTax.Name = "boxTax";
             this.boxTax.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.boxTax.Size = new System.Drawing.Size(87, 17);
-            this.boxTax.TabIndex = 3;
+            this.boxTax.TabIndex = 2;
             this.boxTax.Text = "Taxable Item";
             this.boxTax.UseVisualStyleBackColor = true;
             // 
@@ -121,7 +121,7 @@
             this.boxEd.Name = "boxEd";
             this.boxEd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.boxEd.Size = new System.Drawing.Size(39, 17);
-            this.boxEd.TabIndex = 4;
+            this.boxEd.TabIndex = 3;
             this.boxEd.Text = "Ed";
             this.boxEd.UseVisualStyleBackColor = true;
             // 
@@ -143,7 +143,7 @@
             this.boxMel.Name = "boxMel";
             this.boxMel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.boxMel.Size = new System.Drawing.Size(43, 17);
-            this.boxMel.TabIndex = 4;
+            this.boxMel.TabIndex = 5;
             this.boxMel.Text = "Mel";
             this.boxMel.UseVisualStyleBackColor = true;
             // 
@@ -154,7 +154,7 @@
             this.boxMike.Name = "boxMike";
             this.boxMike.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.boxMike.Size = new System.Drawing.Size(49, 17);
-            this.boxMike.TabIndex = 4;
+            this.boxMike.TabIndex = 6;
             this.boxMike.Text = "Mike";
             this.boxMike.UseVisualStyleBackColor = true;
             // 
@@ -163,7 +163,7 @@
             this.button1.Location = new System.Drawing.Point(10, 200);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Add Item";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

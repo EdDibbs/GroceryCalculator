@@ -137,7 +137,7 @@
             this.btnAddItem.Location = new System.Drawing.Point(12, 256);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
-            this.btnAddItem.TabIndex = 8;
+            this.btnAddItem.TabIndex = 1;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
@@ -148,7 +148,7 @@
             this.btnEditItem.Location = new System.Drawing.Point(12, 285);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(75, 23);
-            this.btnEditItem.TabIndex = 8;
+            this.btnEditItem.TabIndex = 2;
             this.btnEditItem.Text = "Edit Item";
             this.btnEditItem.UseVisualStyleBackColor = true;
             this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
