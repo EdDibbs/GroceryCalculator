@@ -20,6 +20,30 @@ namespace Grocery_Calculator
             myParent = parent;
         }
 
+        public FormAddItem(Form parent, GroceryItem item)
+        {
+            InitializeComponent();
+            txtName.Select();
+            myParent = parent;
+
+            txtName.Text = item.Name;
+            txtCost.Text = item.Cost.ToString() ;
+            boxTax.Checked = item.Taxed;
+
+            int payers = item.Payers;
+            string payersString = ((Payer)payers).ToString();
+            if (payersString.Contains("Ed"))
+                boxEd.Checked = true;
+            if (payersString.Contains("Matt"))
+                boxMatt.Checked = true;
+            if (payersString.Contains("Mel"))
+                boxMatt.Checked = true;
+            if (payersString.Contains("Mike"))
+                boxMike.Checked = true;
+
+
+        }
+
         private void textBox2_Validating(object sender, CancelEventArgs e)
         {
             decimal Cost;

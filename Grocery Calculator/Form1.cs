@@ -45,27 +45,27 @@ namespace Grocery_Calculator
             listItems.Items.Add(newItem.GetListItem());
 
 
-            string[] item1 = new string[4];
-            item1[0] = "Really long item name, like seriously what is this long?";
-            item1[1] = "$15.83";
-            item1[2] = "Y";
-            item1[3] = "Ed, Matt, Mel, Mike";
+            //string[] item1 = new string[4];
+            //item1[0] = "Really long item name, like seriously what is this long?";
+            //item1[1] = "$15.83";
+            //item1[2] = "Y";
+            //item1[3] = "Ed, Matt, Mel, Mike";
 
-            string[] item2 = new string[4];
-            item2[0] = "Bananas";
-            item2[1] = "$2.37";
-            item2[2] = "N";
-            item2[3] = "Matt, Mel";
+            //string[] item2 = new string[4];
+            //item2[0] = "Bananas";
+            //item2[1] = "$2.37";
+            //item2[2] = "N";
+            //item2[3] = "Matt, Mel";
 
-            ListViewItem item = new ListViewItem(item1);
-            listItems.Items.Add(item);
-            item = new ListViewItem(item2);
-            listItems.Items.Add(item);
+            //ListViewItem item = new ListViewItem(item1);
+            //listItems.Items.Add(item);
+            //item = new ListViewItem(item2);
+            //listItems.Items.Add(item);
         }
 
         private void listItems_Validated(object sender, EventArgs e)
         {
-
+            button1_Click(null, null);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace Grocery_Calculator
         {
             FormAddItem addItemForm = new FormAddItem(this);
             addItemForm.ShowDialog();
-            button1_Click(null, null);
+            
         }
 
         private void labelCost2_TextChanged(object sender, EventArgs e)
@@ -105,8 +105,15 @@ namespace Grocery_Calculator
 
         private void btnEditItem_Click(object sender, EventArgs e)
         {
-            //listItems.SelectedItems
-            //FormAddItem addItemForm = new FormAddItem(this);
+
+            ListViewItem selectedItem = listItems.SelectedItems[0];
+            GroceryItem selectedGroceryItem = new GroceryItem (selectedItem);
+            FormAddItem addItemForm = new FormAddItem(this, selectedGroceryItem);
+
+            addItemForm.ShowDialog();
+            
+            listItems.Items.Remove(selectedItem);
+
             
         }
 
@@ -121,6 +128,24 @@ namespace Grocery_Calculator
             Cost = cost;
             Taxed = taxed;
             Payers = payers;
+        }
+
+        public GroceryItem(ListViewItem item)
+        {
+            Name = item.SubItems[0].Text;
+            Cost = decimal.Parse(item.SubItems[1].Text.Replace("$", ""));
+            Taxed = (item.SubItems[2].Text == "Y");
+            Payers = 0;
+            string payersString = item.SubItems[3].Text;
+
+            if (payersString.Contains("Ed"))
+                Payers += (int)Payer.Ed;
+            if (payersString.Contains("Matt"))
+                Payers += (int)Payer.Matt;
+            if (payersString.Contains("Mel"))
+                Payers += (int)Payer.Mel;
+            if (payersString.Contains("Mike"))
+                Payers += (int)Payer.Mike;
         }
 
         public string Name { get; private set; }
