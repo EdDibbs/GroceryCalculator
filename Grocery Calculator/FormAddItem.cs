@@ -27,6 +27,7 @@ namespace Grocery_Calculator
             myParent = parent;
 
             txtName.Text = item.Name;
+            numQuant.Value = item.Quantity;
             txtCost.Text = item.Cost.ToString();
 
             //select and deselect the txtCost to cause validation to occur
