@@ -44,6 +44,7 @@
             this.lblMattCost = new System.Windows.Forms.Label();
             this.lblMelCost = new System.Windows.Forms.Label();
             this.lblMikeCost = new System.Windows.Forms.Label();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -209,11 +210,22 @@
             this.lblMikeCost.TabIndex = 10;
             this.lblMikeCost.Text = "$$$$.$$";
             // 
+            // btnRemoveItem
+            // 
+            this.btnRemoveItem.Location = new System.Drawing.Point(12, 304);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveItem.TabIndex = 11;
+            this.btnRemoveItem.Text = "Remove Item";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 385);
+            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.lblMikeCost);
             this.Controls.Add(this.lblMelCost);
             this.Controls.Add(this.lblMattCost);
@@ -258,6 +270,7 @@
         private System.Windows.Forms.Label lblMattCost;
         private System.Windows.Forms.Label lblMelCost;
         private System.Windows.Forms.Label lblMikeCost;
+        private System.Windows.Forms.Button btnRemoveItem;
     }
 }
 

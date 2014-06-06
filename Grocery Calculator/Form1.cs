@@ -51,6 +51,8 @@ namespace Grocery_Calculator
             listItems.Items.Add(newItem.GetListItem());
             newItem = new GroceryItem("Pork", 8.35m, false, 15);
             listItems.Items.Add(newItem.GetListItem());
+            newItem = new GroceryItem("Mountain Dew", 2.50m, true, (int)Payer.Mike);
+            listItems.Items.Add(newItem.GetListItem());
 
             //string[] item1 = new string[4];
             //item1[0] = "Really long item name, like seriously what is this long?";
@@ -190,6 +192,16 @@ namespace Grocery_Calculator
             listItems.Items.Remove(selectedItem);
 
             
+        }
+
+        private void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            if (listItems.SelectedItems.Count != 0)
+            {
+                listItems.Items.Remove(listItems.SelectedItems[0]);
+            }
+
+            button1_Click(null, null);
         }
 
 
