@@ -40,10 +40,17 @@ namespace Grocery_Calculator
             listItems.GridLines = true;
             listItems.FullRowSelect = true;
             labelCost2.Text = "";
+            lblEdCost.Text = "";
+            lblMattCost.Text = "";
+            lblMelCost.Text = "";
+            lblMikeCost.Text = "";
 
             GroceryItem newItem = new GroceryItem("Strawberries", 3.70m, false, 3);
             listItems.Items.Add(newItem.GetListItem());
-
+            newItem = new GroceryItem("Dr. Pepper", 2.50m, true, (int)Payer.Ed);
+            listItems.Items.Add(newItem.GetListItem());
+            newItem = new GroceryItem("Pork", 8.35m, false, 15);
+            listItems.Items.Add(newItem.GetListItem());
 
             //string[] item1 = new string[4];
             //item1[0] = "Really long item name, like seriously what is this long?";
@@ -71,6 +78,7 @@ namespace Grocery_Calculator
         private void button1_Click(object sender, EventArgs e)
         {
             decimal totalCost = 0;
+            decimal EdTotal = 0, MattTotal = 0, MelTotal = 0, MikeTotal = 0;
 
             foreach (ListViewItem item in listItems.Items)
             {
@@ -83,6 +91,69 @@ namespace Grocery_Calculator
             }
             
             labelCost2.Text = "$" + totalCost.ToString("F");
+
+            //loop through all the items
+            for (int i = 0; i < listItems.Items.Count; i++)
+            {
+                ListViewItem item = listItems.Items[i];
+                GroceryItem gItem = new GroceryItem(item);
+
+                //calculate the cost of the item after tax
+                decimal itemCost = gItem.Cost;
+                if (gItem.Taxed)
+                    itemCost *= 1 + TaxRate;
+                
+                //divide the cost of the item among all the people paying for it
+                bool EdPay = false, MattPay = false, MelPay = false, MikePay = false;
+                string payersString = ((Payer)gItem.Payers).ToString();
+                int payerCount = 0;
+
+                if (payersString.Contains("Ed"))
+                {
+                    payerCount++;
+                    EdPay = true;
+                }
+                if (payersString.Contains("Matt"))
+                {
+                    payerCount++;
+                    MattPay = true;
+                }
+                if (payersString.Contains("Mike"))
+                {
+                    payerCount++;
+                    MikePay = true;
+                }
+                if (payersString.Contains("Mel"))
+                {
+                    payerCount++;
+                    MelPay = true;
+                }
+
+                decimal splitCost = itemCost / payerCount;
+
+                if (EdPay) EdTotal += splitCost;
+                if (MattPay) MattTotal += splitCost;
+                if (MelPay) MelTotal += splitCost;
+                if (MikePay) MikeTotal += splitCost;
+
+            }
+
+            decimal sumOfIndividualCosts = EdTotal + MattTotal + MelTotal + MikeTotal;
+            if (sumOfIndividualCosts > totalCost 
+                /*|| sumOfIndividualCosts < totalCost - 1*/)
+            {
+                MessageBox.Show("Math went wrong somewhere. The sum of each person's share is "
+                    + sumOfIndividualCosts.ToString() + " but it should equal the total cost, ie "
+                    + totalCost.ToString() + ". We're off by $" 
+                    + (Math.Abs(sumOfIndividualCosts - totalCost).ToString() )  );
+            }
+
+            
+
+            lblEdCost.Text = "$"   + Math.Round(EdTotal,2).ToString();
+            lblMattCost.Text = "$" + Math.Round(MattTotal,2).ToString();
+            lblMelCost.Text = "$"  + Math.Round(MelTotal, 2).ToString();
+            lblMikeCost.Text = "$" + Math.Round(MikeTotal, 2).ToString();
 
 
         }
