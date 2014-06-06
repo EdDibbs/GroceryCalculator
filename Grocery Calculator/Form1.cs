@@ -189,9 +189,10 @@ namespace Grocery_Calculator
             GroceryItem selectedGroceryItem = new GroceryItem (selectedItem);
             FormAddItem addItemForm = new FormAddItem(this, selectedGroceryItem);
 
-            addItemForm.ShowDialog();
+            DialogResult result = addItemForm.ShowDialog();
             
-            listItems.Items.Remove(selectedItem);
+            if (result == System.Windows.Forms.DialogResult.OK)
+                listItems.Items.Remove(selectedItem);
 
             
         }

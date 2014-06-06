@@ -122,7 +122,7 @@ namespace Grocery_Calculator
             GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payers, quantity);
 
             ((Form1)myParent).AddItem(newItem.GetListItem());
-            this.Close();
+            
         }
 
         private void txtName_Validating(object sender, CancelEventArgs e)
