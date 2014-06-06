@@ -91,6 +91,9 @@ namespace Grocery_Calculator
                 System.Media.SystemSounds.Exclamation.Play();
                 return;
             }
+
+            int quantity = (int)numQuant.Value;
+
             if (txtCost.Text == "")
             {
                 toolStripStatusLabel1.Text = "Enter an item cost!";
@@ -116,7 +119,7 @@ namespace Grocery_Calculator
 
 
 
-            GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payers);
+            GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payers, quantity);
 
             ((Form1)myParent).AddItem(newItem.GetListItem());
             this.Close();

@@ -32,7 +32,8 @@ namespace Grocery_Calculator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listItems.Columns.Add("Item Name", 200);
+            listItems.Columns.Add("Item Name", 150);
+            listItems.Columns.Add("#", 50, HorizontalAlignment.Center);
             listItems.Columns.Add("Cost", 50, HorizontalAlignment.Right);
             listItems.Columns.Add("Taxed?",50,HorizontalAlignment.Center);
             listItems.Columns.Add("Payers", 140);
@@ -84,8 +85,8 @@ namespace Grocery_Calculator
 
             foreach (ListViewItem item in listItems.Items)
             {
-                decimal itemCost = decimal.Parse(item.SubItems[1].Text.Replace("$",""));
-                bool taxable = (item.SubItems[2].Text == "Y");
+                decimal itemCost = decimal.Parse(item.SubItems[2].Text.Replace("$",""));
+                bool taxable = (item.SubItems[3].Text == "Y");
 
                 if (taxable) itemCost *= 1 + TaxRate;
 
@@ -131,6 +132,7 @@ namespace Grocery_Calculator
                     MelPay = true;
                 }
 
+                
                 decimal splitCost = itemCost / payerCount;
 
                 if (EdPay) EdTotal += splitCost;
@@ -209,10 +211,11 @@ namespace Grocery_Calculator
 
     public class GroceryItem
     {
-        public GroceryItem(string name, decimal cost, bool taxed, int payers)
+        public GroceryItem(string name, decimal cost, bool taxed, int payers, int quantity = 1)
         {
             Name = name;
             Cost = cost;
+            Quantity = quantity;
             Taxed = taxed;
             Payers = payers;
         }
@@ -220,10 +223,11 @@ namespace Grocery_Calculator
         public GroceryItem(ListViewItem item)
         {
             Name = item.SubItems[0].Text;
-            Cost = decimal.Parse(item.SubItems[1].Text.Replace("$", ""));
-            Taxed = (item.SubItems[2].Text == "Y");
+            Quantity = int.Parse(item.SubItems[1].Text);
+            Cost = decimal.Parse(item.SubItems[2].Text.Replace("$", ""));
+            Taxed = (item.SubItems[3].Text == "Y");
             Payers = 0;
-            string payersString = item.SubItems[3].Text;
+            string payersString = item.SubItems[4].Text;
 
             if (payersString.Contains("Ed"))
                 Payers += (int)Payer.Ed;
@@ -236,21 +240,23 @@ namespace Grocery_Calculator
         }
 
         public string Name { get; private set; }
+        public int Quantity { get; private set; }
         public decimal Cost { get; private set; }
         public bool Taxed { get; private set; }
         public int Payers { get; private set; }
 
         public ListViewItem GetListItem()
         {
-            string[] itemString = new string[4];
+            string[] itemString = new string[5];
 
             itemString[0] = Name;
-            itemString[1] = "$" + Cost.ToString();
+            itemString[1] = Quantity.ToString();
+            itemString[2] = "$" + Cost.ToString();
 
-            if (Taxed) itemString[2] = "Y";
-            else itemString[2] = "N";
+            if (Taxed) itemString[3] = "Y";
+            else itemString[3] = "N";
 
-            itemString[3] = ((Payer)Payers).ToString();
+            itemString[4] = ((Payer)Payers).ToString();
 
             return new ListViewItem(itemString);
         }
