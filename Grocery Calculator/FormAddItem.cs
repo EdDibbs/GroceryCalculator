@@ -99,7 +99,7 @@ namespace Grocery_Calculator
             }
 
             //make sure at least one checkbox is checked
-            if (!boxEd.Checked && !boxMatt.Checked && !boxMel.Checked && !boxMatt.Checked)
+            if (!boxEd.Checked && !boxMatt.Checked && !boxMel.Checked && !boxMike.Checked)
             {
                 toolStripStatusLabel1.Text = "Check at least one person!";
                 System.Media.SystemSounds.Exclamation.Play();
