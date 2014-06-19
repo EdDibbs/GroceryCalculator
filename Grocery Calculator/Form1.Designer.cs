@@ -176,6 +176,7 @@
             // 
             // lblEdCost
             // 
+            this.lblEdCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEdCost.AutoSize = true;
             this.lblEdCost.Location = new System.Drawing.Point(383, 273);
             this.lblEdCost.Name = "lblEdCost";
@@ -185,6 +186,7 @@
             // 
             // lblMattCost
             // 
+            this.lblMattCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMattCost.AutoSize = true;
             this.lblMattCost.Location = new System.Drawing.Point(383, 291);
             this.lblMattCost.Name = "lblMattCost";
@@ -194,6 +196,7 @@
             // 
             // lblMelCost
             // 
+            this.lblMelCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMelCost.AutoSize = true;
             this.lblMelCost.Location = new System.Drawing.Point(383, 309);
             this.lblMelCost.Name = "lblMelCost";
@@ -203,6 +206,7 @@
             // 
             // lblMikeCost
             // 
+            this.lblMikeCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMikeCost.AutoSize = true;
             this.lblMikeCost.Location = new System.Drawing.Point(383, 327);
             this.lblMikeCost.Name = "lblMikeCost";
@@ -212,6 +216,7 @@
             // 
             // btnRemoveItem
             // 
+            this.btnRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoveItem.Location = new System.Drawing.Point(12, 304);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(75, 23);

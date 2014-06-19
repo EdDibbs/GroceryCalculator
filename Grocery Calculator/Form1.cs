@@ -46,31 +46,16 @@ namespace Grocery_Calculator
             lblMelCost.Text = "";
             lblMikeCost.Text = "";
 
-            GroceryItem newItem = new GroceryItem("Strawberries", 3.70m, false, 3);
-            listItems.Items.Add(newItem.GetListItem());
-            newItem = new GroceryItem("Dr. Pepper", 2.50m, true, (int)Payer.Ed);
-            listItems.Items.Add(newItem.GetListItem());
-            newItem = new GroceryItem("Pork", 8.35m, false, 15);
-            listItems.Items.Add(newItem.GetListItem());
-            newItem = new GroceryItem("Mountain Dew", 2.50m, true, (int)Payer.Mike);
-            listItems.Items.Add(newItem.GetListItem());
+            //GroceryItem newItem = new GroceryItem("Strawberries", 3.70m, false, 3);
+            //listItems.Items.Add(newItem.GetListItem());
+            //newItem = new GroceryItem("Dr. Pepper", 2.50m, true, (int)Payer.Ed);
+            //listItems.Items.Add(newItem.GetListItem());
+            //newItem = new GroceryItem("Pork", 8.35m, false, 15);
+            //listItems.Items.Add(newItem.GetListItem());
+            //newItem = new GroceryItem("Mountain Dew", 2.50m, true, (int)Payer.Mike);
+            //listItems.Items.Add(newItem.GetListItem());
 
-            //string[] item1 = new string[4];
-            //item1[0] = "Really long item name, like seriously what is this long?";
-            //item1[1] = "$15.83";
-            //item1[2] = "Y";
-            //item1[3] = "Ed, Matt, Mel, Mike";
 
-            //string[] item2 = new string[4];
-            //item2[0] = "Bananas";
-            //item2[1] = "$2.37";
-            //item2[2] = "N";
-            //item2[3] = "Matt, Mel";
-
-            //ListViewItem item = new ListViewItem(item1);
-            //listItems.Items.Add(item);
-            //item = new ListViewItem(item2);
-            //listItems.Items.Add(item);
         }
 
         private void listItems_Validated(object sender, EventArgs e)
@@ -143,8 +128,8 @@ namespace Grocery_Calculator
             }
 
             decimal sumOfIndividualCosts = EdTotal + MattTotal + MelTotal + MikeTotal;
-            if (sumOfIndividualCosts > totalCost 
-                /*|| sumOfIndividualCosts < totalCost - 1*/)
+            if (sumOfIndividualCosts > totalCost + 1
+                || sumOfIndividualCosts < totalCost - 1)
             {
                 MessageBox.Show("Math went wrong somewhere. The sum of each person's share is "
                     + sumOfIndividualCosts.ToString() + " but it should equal the total cost, ie "
@@ -199,11 +184,15 @@ namespace Grocery_Calculator
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
+            int index = 0; 
             if (listItems.SelectedItems.Count != 0)
             {
+                index = listItems.Items.IndexOf(listItems.SelectedItems[0]);
                 listItems.Items.Remove(listItems.SelectedItems[0]);
             }
+            
 
+            //listItems.Items[index].Selected = true;
             button1_Click(null, null);
         }
 
