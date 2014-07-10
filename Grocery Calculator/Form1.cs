@@ -72,9 +72,9 @@ namespace Grocery_Calculator
             {
                 decimal itemCost = decimal.Parse(item.SubItems[2].Text.Replace("$",""));
                 bool taxable = (item.SubItems[3].Text == "Y");
-
+                int quantity = int.Parse(item.SubItems[1].Text);
                 if (taxable) itemCost *= 1 + TaxRate;
-
+                itemCost *= quantity;
                 totalCost += itemCost;
             }
             
@@ -85,9 +85,11 @@ namespace Grocery_Calculator
             {
                 ListViewItem item = listItems.Items[i];
                 GroceryItem gItem = new GroceryItem(item);
-
+                
                 //calculate the cost of the item after tax
+
                 decimal itemCost = gItem.Cost;
+                
                 if (gItem.Taxed)
                     itemCost *= 1 + TaxRate;
                 
@@ -118,7 +120,7 @@ namespace Grocery_Calculator
                 }
 
                 
-                decimal splitCost = itemCost / payerCount;
+                decimal splitCost = (itemCost * gItem.Quantity) / payerCount;
 
                 if (EdPay) EdTotal += splitCost;
                 if (MattPay) MattTotal += splitCost;
