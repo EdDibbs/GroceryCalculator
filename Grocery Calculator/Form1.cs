@@ -19,10 +19,14 @@ namespace Grocery_Calculator
     public partial class Form1 : Form
     {
         public decimal TaxRate = 0.07725m;
+        public bool SavedSinceModified = true;
 
         public Form1()
         {
             InitializeComponent();
+            saveFileDialog1.Filter = "Text files (*.txt)|*.txt";
+            saveFileDialog1.FileName = "Grocery List.txt";
+            openFileDialog1.Filter = "Text files(*.txt)|*.txt";
 
         }
         public void AddItem(ListViewItem item)
@@ -153,7 +157,7 @@ namespace Grocery_Calculator
         {
             FormAddItem addItemForm = new FormAddItem(this);
             addItemForm.ShowDialog();
-            
+            SavedSinceModified = false;
         }
 
         private void labelCost2_TextChanged(object sender, EventArgs e)
@@ -181,7 +185,7 @@ namespace Grocery_Calculator
             if (result == System.Windows.Forms.DialogResult.OK)
                 listItems.Items.Remove(selectedItem);
 
-            
+            SavedSinceModified = false;
         }
 
         private void btnRemoveItem_Click(object sender, EventArgs e)
@@ -196,6 +200,132 @@ namespace Grocery_Calculator
 
             //listItems.Items[index].Selected = true;
             button1_Click(null, null);
+
+            SavedSinceModified = false;
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = saveFileDialog1.ShowDialog();
+
+            saveFile(saveFileDialog1.FileName);    
+
+            
+        }
+
+        private void saveFile(string filepath)
+        {
+            //open the file stream
+            System.IO.StreamWriter file = new System.IO.StreamWriter(filepath);
+            string line;
+
+            //loop through all the items
+            for (int i = 0; i < listItems.Items.Count; i++)
+            {
+                line = "";
+                ListViewItem item = listItems.Items[i];
+
+                for (int j = 0; j < item.SubItems.Count; j++)
+                {
+                    line += item.SubItems[j].Text;
+                    line += "\t";
+                }
+                //print out each item
+                file.WriteLine(line);
+            }
+
+            file.Close();
+            SavedSinceModified = true;
+        }
+
+        private void loadFile(string filepath)
+        {
+            //open the file stream
+            System.IO.StreamReader file = new System.IO.StreamReader(filepath);
+            string line;
+            string[] entries = new string[5];
+
+            //clear our current list
+            listItems.Items.Clear();
+
+            //loop through all the items
+            while (!file.EndOfStream)
+            {
+                line = file.ReadLine();
+                entries = line.Split('\t');
+
+                string name = entries[0];
+
+                int quantity;
+                int.TryParse(entries[1], out quantity);
+
+                decimal cost;
+                decimal.TryParse( entries[2].TrimStart('$'), out cost );
+
+                bool taxed;
+                if (entries[3] == "Y") taxed = true;
+                else taxed = false;
+
+                string payersString = entries[4];
+                int payersInt = 0;
+
+                if (payersString.Contains("Ed"))
+                {
+                    payersInt += (int)Payer.Ed;
+                }
+                if (payersString.Contains("Matt"))
+                {
+                    payersInt += (int)Payer.Matt;
+                }
+                if (payersString.Contains("Mel"))
+                {
+                    payersInt += (int)Payer.Mel;
+                }
+                if (payersString.Contains("Mike"))
+                {
+                    payersInt += (int)Payer.Mike;
+                }
+
+
+                GroceryItem item = new GroceryItem(name, cost, taxed, payersInt, quantity);
+                AddItem(item.GetListItem());
+            }
+
+
+            file.Close();
+            
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!SavedSinceModified)
+            {
+                var promptResult = MessageBox.Show("Save file?", "Do you want to save your current list first?"
+                    , MessageBoxButtons.YesNoCancel);
+
+                if (promptResult == DialogResult.Cancel)
+                { return; }
+                else if (promptResult == DialogResult.Yes)
+                {
+                    saveToolStripMenuItem_Click(null, null);
+                }
+
+            }
+
+            DialogResult result = openFileDialog1.ShowDialog();
+            loadFile(openFileDialog1.FileName);
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
 
 
