@@ -176,7 +176,10 @@ namespace Grocery_Calculator
                 statusLabel.Text = "Must select an item to edit.";
                 return;
             }
+
+            //Get the item to be edited and send it back to the AddItem form
             ListViewItem selectedItem = listItems.SelectedItems[0];
+            int selectedItemIndex = selectedItem.Index;
             GroceryItem selectedGroceryItem = new GroceryItem (selectedItem);
             FormAddItem addItemForm = new FormAddItem(this, selectedGroceryItem);
 
@@ -184,6 +187,13 @@ namespace Grocery_Calculator
             
             if (result == System.Windows.Forms.DialogResult.OK)
                 listItems.Items.Remove(selectedItem);
+
+            //since our new item is in the last position of the list,
+            //move it back to where it was
+            ListViewItem editedItem = addItemForm.getLastItemAdded();
+
+            listItems.Items.Remove(editedItem);
+            listItems.Items.Insert(selectedItemIndex, editedItem);
 
             SavedSinceModified = false;
         }

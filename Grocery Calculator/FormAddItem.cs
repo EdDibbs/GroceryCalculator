@@ -13,13 +13,19 @@ namespace Grocery_Calculator
     public partial class FormAddItem : Form
     {
         Form myParent;
+        ListViewItem m_LastAddedItem;
+
         public FormAddItem(Form parent)
         {
             InitializeComponent();
             txtName.Select();
             myParent = parent;
+            m_LastAddedItem = null;
         }
-
+        public ListViewItem getLastItemAdded()
+        {   
+            return m_LastAddedItem;
+        }
         public FormAddItem(Form parent, GroceryItem item)
         {
             InitializeComponent();
@@ -121,8 +127,9 @@ namespace Grocery_Calculator
 
 
             GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payers, quantity);
-
-            ((Form1)myParent).AddItem(newItem.GetListItem());
+            m_LastAddedItem = newItem.GetListItem();
+            ((Form1)myParent).AddItem(m_LastAddedItem);
+            
             
         }
 
