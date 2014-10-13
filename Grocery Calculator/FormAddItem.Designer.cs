@@ -36,10 +36,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.boxTax = new System.Windows.Forms.CheckBox();
-            this.boxEd = new System.Windows.Forms.CheckBox();
-            this.boxMatt = new System.Windows.Forms.CheckBox();
-            this.boxMel = new System.Windows.Forms.CheckBox();
-            this.boxMike = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.numQuant = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -95,9 +91,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 271);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 290);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(236, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(251, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -117,54 +113,10 @@
             this.boxTax.Text = "Taxable Item";
             this.boxTax.UseVisualStyleBackColor = true;
             // 
-            // boxEd
-            // 
-            this.boxEd.AutoSize = true;
-            this.boxEd.Location = new System.Drawing.Point(102, 125);
-            this.boxEd.Name = "boxEd";
-            this.boxEd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.boxEd.Size = new System.Drawing.Size(39, 17);
-            this.boxEd.TabIndex = 3;
-            this.boxEd.Text = "Ed";
-            this.boxEd.UseVisualStyleBackColor = true;
-            // 
-            // boxMatt
-            // 
-            this.boxMatt.AutoSize = true;
-            this.boxMatt.Location = new System.Drawing.Point(102, 148);
-            this.boxMatt.Name = "boxMatt";
-            this.boxMatt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.boxMatt.Size = new System.Drawing.Size(47, 17);
-            this.boxMatt.TabIndex = 4;
-            this.boxMatt.Text = "Matt";
-            this.boxMatt.UseVisualStyleBackColor = true;
-            // 
-            // boxMel
-            // 
-            this.boxMel.AutoSize = true;
-            this.boxMel.Location = new System.Drawing.Point(102, 171);
-            this.boxMel.Name = "boxMel";
-            this.boxMel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.boxMel.Size = new System.Drawing.Size(43, 17);
-            this.boxMel.TabIndex = 5;
-            this.boxMel.Text = "Mel";
-            this.boxMel.UseVisualStyleBackColor = true;
-            // 
-            // boxMike
-            // 
-            this.boxMike.AutoSize = true;
-            this.boxMike.Location = new System.Drawing.Point(102, 194);
-            this.boxMike.Name = "boxMike";
-            this.boxMike.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.boxMike.Size = new System.Drawing.Size(49, 17);
-            this.boxMike.TabIndex = 6;
-            this.boxMike.Text = "Mike";
-            this.boxMike.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(10, 228);
+            this.button1.Location = new System.Drawing.Point(15, 264);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -202,13 +154,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 293);
+            this.ClientSize = new System.Drawing.Size(251, 312);
             this.Controls.Add(this.numQuant);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.boxMike);
-            this.Controls.Add(this.boxMel);
-            this.Controls.Add(this.boxMatt);
-            this.Controls.Add(this.boxEd);
             this.Controls.Add(this.boxTax);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtCost);
@@ -237,10 +185,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.CheckBox boxTax;
-        private System.Windows.Forms.CheckBox boxEd;
-        private System.Windows.Forms.CheckBox boxMatt;
-        private System.Windows.Forms.CheckBox boxMel;
-        private System.Windows.Forms.CheckBox boxMike;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numQuant;
         private System.Windows.Forms.Label label3;

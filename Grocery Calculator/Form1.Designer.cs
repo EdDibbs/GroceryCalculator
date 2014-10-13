@@ -29,26 +29,22 @@
         private void InitializeComponent()
         {
             this.listItems = new System.Windows.Forms.ListView();
-            this.labelCost1 = new System.Windows.Forms.Label();
-            this.labelCost2 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblTotalCost = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.lblEd = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblEdCost = new System.Windows.Forms.Label();
-            this.lblMattCost = new System.Windows.Forms.Label();
-            this.lblMelCost = new System.Windows.Forms.Label();
-            this.lblMikeCost = new System.Windows.Forms.Label();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.payersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1.SuspendLayout();
@@ -69,28 +65,28 @@
             this.listItems.View = System.Windows.Forms.View.List;
             this.listItems.Validated += new System.EventHandler(this.listItems_Validated);
             // 
-            // labelCost1
+            // lblTotal
             // 
-            this.labelCost1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCost1.AutoSize = true;
-            this.labelCost1.Location = new System.Drawing.Point(343, 371);
-            this.labelCost1.Name = "labelCost1";
-            this.labelCost1.Size = new System.Drawing.Size(34, 13);
-            this.labelCost1.TabIndex = 1;
-            this.labelCost1.Text = "Total:";
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(371, 371);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(34, 13);
+            this.lblTotal.TabIndex = 1;
+            this.lblTotal.Text = "Total:";
             // 
-            // labelCost2
+            // lblTotalCost
             // 
-            this.labelCost2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelCost2.AutoSize = true;
-            this.labelCost2.Location = new System.Drawing.Point(383, 371);
-            this.labelCost2.Name = "labelCost2";
-            this.labelCost2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelCost2.Size = new System.Drawing.Size(46, 13);
-            this.labelCost2.TabIndex = 2;
-            this.labelCost2.Text = "$$$$.$$";
-            this.labelCost2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelCost2.TextChanged += new System.EventHandler(this.labelCost2_TextChanged);
+            this.lblTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalCost.AutoSize = true;
+            this.lblTotalCost.Location = new System.Drawing.Point(411, 371);
+            this.lblTotalCost.Name = "lblTotalCost";
+            this.lblTotalCost.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTotalCost.Size = new System.Drawing.Size(46, 13);
+            this.lblTotalCost.TabIndex = 2;
+            this.lblTotalCost.Text = "$$$$.$$";
+            this.lblTotalCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalCost.TextChanged += new System.EventHandler(this.labelCost2_TextChanged);
             // 
             // btnUpdate
             // 
@@ -102,46 +98,6 @@
             this.btnUpdate.Text = "Update Totals";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblEd
-            // 
-            this.lblEd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEd.AutoSize = true;
-            this.lblEd.Location = new System.Drawing.Point(343, 294);
-            this.lblEd.Name = "lblEd";
-            this.lblEd.Size = new System.Drawing.Size(23, 13);
-            this.lblEd.TabIndex = 4;
-            this.lblEd.Text = "Ed:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(343, 312);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Matt:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(343, 330);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Mel:";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(343, 348);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Mike:";
             // 
             // btnAddItem
             // 
@@ -181,46 +137,6 @@
             this.statusLabel.Size = new System.Drawing.Size(10, 17);
             this.statusLabel.Text = " ";
             // 
-            // lblEdCost
-            // 
-            this.lblEdCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEdCost.AutoSize = true;
-            this.lblEdCost.Location = new System.Drawing.Point(383, 294);
-            this.lblEdCost.Name = "lblEdCost";
-            this.lblEdCost.Size = new System.Drawing.Size(46, 13);
-            this.lblEdCost.TabIndex = 10;
-            this.lblEdCost.Text = "$$$$.$$";
-            // 
-            // lblMattCost
-            // 
-            this.lblMattCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMattCost.AutoSize = true;
-            this.lblMattCost.Location = new System.Drawing.Point(383, 312);
-            this.lblMattCost.Name = "lblMattCost";
-            this.lblMattCost.Size = new System.Drawing.Size(46, 13);
-            this.lblMattCost.TabIndex = 10;
-            this.lblMattCost.Text = "$$$$.$$";
-            // 
-            // lblMelCost
-            // 
-            this.lblMelCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMelCost.AutoSize = true;
-            this.lblMelCost.Location = new System.Drawing.Point(383, 330);
-            this.lblMelCost.Name = "lblMelCost";
-            this.lblMelCost.Size = new System.Drawing.Size(46, 13);
-            this.lblMelCost.TabIndex = 10;
-            this.lblMelCost.Text = "$$$$.$$";
-            // 
-            // lblMikeCost
-            // 
-            this.lblMikeCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMikeCost.AutoSize = true;
-            this.lblMikeCost.Location = new System.Drawing.Point(383, 348);
-            this.lblMikeCost.Name = "lblMikeCost";
-            this.lblMikeCost.Size = new System.Drawing.Size(46, 13);
-            this.lblMikeCost.TabIndex = 10;
-            this.lblMikeCost.Text = "$$$$.$$";
-            // 
             // btnRemoveItem
             // 
             this.btnRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -235,7 +151,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.payersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(471, 24);
@@ -263,9 +180,38 @@
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.loadToolStripMenuItem.Text = "Open";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // payersToolStripMenuItem
+            // 
+            this.payersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.payersToolStripMenuItem.Name = "payersToolStripMenuItem";
+            this.payersToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.payersToolStripMenuItem.Text = "Payers";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBox1_KeyPress);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
             // 
             // saveFileDialog1
             // 
@@ -282,21 +228,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 406);
             this.Controls.Add(this.btnRemoveItem);
-            this.Controls.Add(this.lblMikeCost);
-            this.Controls.Add(this.lblMelCost);
-            this.Controls.Add(this.lblMattCost);
-            this.Controls.Add(this.lblEdCost);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.btnAddItem);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblEd);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.labelCost2);
-            this.Controls.Add(this.labelCost1);
+            this.Controls.Add(this.lblTotalCost);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.listItems);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(485, 200);
@@ -315,21 +253,13 @@
         #endregion
 
         private System.Windows.Forms.ListView listItems;
-        private System.Windows.Forms.Label labelCost1;
-        private System.Windows.Forms.Label labelCost2;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblTotalCost;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label lblEd;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnEditItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
-        private System.Windows.Forms.Label lblEdCost;
-        private System.Windows.Forms.Label lblMattCost;
-        private System.Windows.Forms.Label lblMelCost;
-        private System.Windows.Forms.Label lblMikeCost;
         private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -337,6 +267,10 @@
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem payersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }
 

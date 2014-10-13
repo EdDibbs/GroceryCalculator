@@ -14,6 +14,8 @@ namespace Grocery_Calculator
     {
         Form myParent;
         ListViewItem m_LastAddedItem;
+        CheckBox[] m_Boxes;
+        int m_NumPayers;
 
         public FormAddItem(Form parent)
         {
@@ -21,12 +23,36 @@ namespace Grocery_Calculator
             txtName.Select();
             myParent = parent;
             m_LastAddedItem = null;
+            
+            m_NumPayers = ((Form1)myParent).NumPayers;
+            m_Boxes = new CheckBox[m_NumPayers];
+
+            for (int payer = 0; payer < m_NumPayers; payer++)
+            {
+                //set the text for the check boxes
+                m_Boxes[payer] = new CheckBox();
+                m_Boxes[payer].Text = ((Form1)myParent).Payers[payer];
+
+
+                //set the position of the check boxes
+                int xPos = 15 + ((payer / 4) * 107);
+                int yPos = 151 + ((payer % 4) * 23);
+                m_Boxes[payer].Location = new Point(xPos, yPos);
+
+
+                this.Controls.Add(m_Boxes[payer]);
+                
+            }
+
+
         }
         public ListViewItem getLastItemAdded()
         {   
             return m_LastAddedItem;
         }
-        public FormAddItem(Form parent, GroceryItem item)
+
+        //constructor for if we're actually editing an item
+        public FormAddItem(Form parent, GroceryItem item) 
         {
             InitializeComponent();
             txtName.Select();
@@ -41,16 +67,16 @@ namespace Grocery_Calculator
             txtName.Select();
             boxTax.Checked = item.Taxed;
 
-            int payers = item.Payers;
-            string payersString = ((Payer)payers).ToString();
-            if (payersString.Contains("Ed"))
-                boxEd.Checked = true;
-            if (payersString.Contains("Matt"))
-                boxMatt.Checked = true;
-            if (payersString.Contains("Mel"))
-                boxMel.Checked = true;
-            if (payersString.Contains("Mike"))
-                boxMike.Checked = true;
+            int payerInt = item.Payers;
+
+            //parse our payerInt bitstring to find which payers are paying
+            for (int payerBit = 0; payerBit < m_NumPayers; payerBit++)
+            {
+                if ((payerInt & 1 << payerBit) != 0)
+                {
+                    m_Boxes[payerBit].Checked = true;
+                }
+            }
 
 
         }
@@ -109,7 +135,16 @@ namespace Grocery_Calculator
             }
 
             //make sure at least one checkbox is checked
-            if (!boxEd.Checked && !boxMatt.Checked && !boxMel.Checked && !boxMike.Checked)
+            bool oneChecked = false;
+            foreach (CheckBox box in m_Boxes)
+            {
+                if (box.Checked)
+                {
+                    oneChecked = true;
+                    break;
+                }
+            }
+            if (!oneChecked)
             {
                 toolStripStatusLabel1.Text = "Check at least one person!";
                 System.Media.SystemSounds.Exclamation.Play();
@@ -118,16 +153,20 @@ namespace Grocery_Calculator
 
             decimal cost;
             decimal.TryParse(txtCost.Text.Substring(1), out cost);
-            int payers = 0;
-            if (boxEd.Checked) payers += (int)Payer.Ed;
-            if (boxMatt.Checked) payers += (int)Payer.Matt;
-            if (boxMel.Checked) payers += (int)Payer.Mel;
-            if (boxMike.Checked) payers += (int)Payer.Mike;
+            int payerInt = 0;
+
+            for (int payer = 0; payer < m_NumPayers; payer++)
+            {
+                if (m_Boxes[payer].Checked)
+                {
+                    payerInt += (int)Math.Pow(2, payer);
+                }
+            }
 
 
 
-            GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payers, quantity);
-            m_LastAddedItem = newItem.GetListItem();
+            GroceryItem newItem = new GroceryItem(txtName.Text, cost, boxTax.Checked, payerInt, quantity);
+            m_LastAddedItem = newItem.GetListItem(((Form1)myParent).Payers);
             ((Form1)myParent).AddItem(m_LastAddedItem);
             
             
